@@ -35,6 +35,7 @@ func (m *Mapper) SetDefault(def log.Logger) *Mapper {
 	return m
 }
 
+//AddLogger append logger for specific value
 func (m *Mapper) AddLogger(val interface{}, loggers ...log.Logger) *Mapper {
 	ls, ok := m.valMap[val]
 	if !ok {
