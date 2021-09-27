@@ -66,12 +66,12 @@ func (m *Mapper) Log(keyvals ...interface{}) error {
 					return err
 				}
 			}
+		} else {
+			if m.def == nil {
+				return ErrNoLogger
+			}
+			return m.def.Log(keyvals...)
 		}
-
-		if m.def == nil {
-			return ErrNoLogger
-		}
-		return m.def.Log(keyvals...)
 	}
 
 	if m.def == nil {
